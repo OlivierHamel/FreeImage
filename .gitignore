@@ -30,3 +30,4 @@ _ReSharper*/
 *.tlog
 *.sdf
 *.opensdf
+Dist/*
