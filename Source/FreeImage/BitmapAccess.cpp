@@ -416,6 +416,11 @@ FreeImage_AllocateBitmap(BOOL header_only, BYTE *ext_bits, unsigned ext_pitch, F
 			// initialize metadata models list
 
 			fih->metadata = new(std::nothrow) METADATAMAP;
+			if (!fih->metadata) {
+				FreeImage_Aligned_Free(bitmap->data);
+				free(bitmap);
+				return nullptr;
+			}
 
 			// initialize attached thumbnail
 
